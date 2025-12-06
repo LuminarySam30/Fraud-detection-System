@@ -13,7 +13,7 @@ st.set_page_config(
     initial_sidebar_state="expanded"
 )
 
-# Custom CSS for better styling
+# Custom CSS for better 
 st.markdown("""
     <style>
     .main {
@@ -100,7 +100,7 @@ page = st.sidebar.radio("Go to", ["Home", "Fraud Checker", "Performance", "About
 
 # 5. PAGE: HOME
 if page == "Home":
-    st.title("🛡️ SecureGuard AI")
+    st.title("🛡️ Fraud Detection System")
     st.subheader("Next-Generation Financial Fraud Detection System")
     
     col1, col2, col3 = st.columns(3)
@@ -243,3 +243,4 @@ elif page == "About":
     - **Model:** XGBoost Classifier (500 trees, Depth 10).
     - **Optimization:** Custom thresholding for maximum recall.
     """)
+

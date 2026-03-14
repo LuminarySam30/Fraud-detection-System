@@ -2,6 +2,8 @@
 
 An end-to-end Machine Learning solution for detecting fraudulent credit card transactions using **XGBoost**, **SMOTE**, and **Streamlit**.
 
+[**🚀 Live Demo**](https://fraud-detection-system-samuel.streamlit.app/)
+
 ### **🚀 Project Overview**
 This project addresses the critical challenge of credit card fraud detection in highly imbalanced datasets (only 0.58% fraud). By engineering advanced behavioral and geographic features and utilizing synthetic oversampling, we built a model that achieves elite performance in identifying suspicious activities.
 

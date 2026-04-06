@@ -2,9 +2,9 @@
 data/
 *.csv
 
-# Model artifacts
-models/
-*.pkl
+# Model artifacts (tracked — needed for Streamlit Cloud deployment)
+# models/
+# *.pkl
 
 # Python cache
 __pycache__/

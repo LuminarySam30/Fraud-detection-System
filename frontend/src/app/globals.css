@@ -1,0 +1,119 @@
+@import "tailwindcss";
+
+/* -------------------------------------------------------------
+   FraudGuard - "Fintech Trust" identity (distinct from DataLink).
+   Type: IBM Plex Sans (UI + headings) + IBM Plex Mono (figures).
+   Palette: emerald money-green primary, rose reserved for fraud.
+   ------------------------------------------------------------- */
+@theme {
+  --font-sans: var(--font-plex-sans), ui-sans-serif, system-ui, -apple-system, sans-serif;
+  --font-mono: var(--font-plex-mono), ui-monospace, SFMono-Regular, monospace;
+
+  /* surfaces - deep money-green ink */
+  --color-bg: #0c1411;
+  --color-surface: #14201b;
+  --color-surface-2: #1b2b23;
+
+  /* brand (emerald) + accent (mint) */
+  --color-brand: #10b981;
+  --color-brand-soft: #059669;
+  --color-brand-strong: #047857;
+  --color-accent: #34d399;
+  --color-accent-strong: #10b981;
+
+  /* semantic status - rose danger pops against the green for FRAUD */
+  --color-success: #22c55e;
+  --color-warning: #fbbf24;
+  --color-danger: #fb7185;
+
+  /* text - mint-tinted neutrals */
+  --color-fg: #ecfdf5;
+  --color-fg-muted: #a7c3b8;
+  --color-fg-subtle: #7e988d;
+
+  /* lines - faint emerald tint */
+  --color-line: rgba(167, 243, 208, 0.1);
+  --color-line-strong: rgba(167, 243, 208, 0.22);
+
+  --radius-card: 0.9rem;
+}
+
+@layer base {
+  html {
+    color-scheme: dark;
+  }
+  body {
+    background-color: var(--color-bg);
+    color: var(--color-fg);
+    font-family: var(--font-sans);
+    background-image:
+      radial-gradient(55rem 38rem at 12% -12%, rgba(16, 185, 129, 0.13), transparent 60%),
+      radial-gradient(48rem 36rem at 100% 0%, rgba(52, 211, 153, 0.06), transparent 55%);
+    background-attachment: fixed;
+    min-height: 100dvh;
+    -webkit-font-smoothing: antialiased;
+  }
+  /* IBM Plex Sans headings (clean, banking) - not monospace */
+  h1, h2, h3, h4 {
+    font-family: var(--font-sans);
+    letter-spacing: -0.015em;
+  }
+  ::selection {
+    background: rgba(16, 185, 129, 0.35);
+  }
+}
+
+@layer utilities {
+  .panel,
+  .glass {
+    background-color: color-mix(in oklab, var(--color-surface) 90%, transparent);
+    border: 1px solid var(--color-line);
+    border-radius: var(--radius-card);
+    backdrop-filter: blur(12px);
+  }
+  .panel-hover,
+  .glass-hover {
+    transition: border-color 0.2s ease, background-color 0.2s ease, transform 0.2s ease;
+  }
+  .panel-hover:hover,
+  .glass-hover:hover {
+    border-color: var(--color-line-strong);
+    background-color: var(--color-surface-2);
+  }
+  .text-gradient {
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    background-image: linear-gradient(90deg, var(--color-brand), #6ee7b7);
+  }
+  /* tabular mono figures for amounts / percentages (no layout shift) */
+  .nums {
+    font-family: var(--font-mono);
+    font-variant-numeric: tabular-nums;
+  }
+  .focus-ring:focus-visible {
+    outline: 2px solid var(--color-brand);
+    outline-offset: 2px;
+  }
+  .scrollbar-thin {
+    scrollbar-width: thin;
+    scrollbar-color: var(--color-line-strong) transparent;
+  }
+  .scrollbar-hide {
+    scrollbar-width: none;
+  }
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
